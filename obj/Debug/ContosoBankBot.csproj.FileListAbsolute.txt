@@ -37,3 +37,23 @@ C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\Contos
 C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
 C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Debug\Bot Application1.dll
 C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Debug\Bot Application1.pdb
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Debug\ContosoBankBot.csproj.App.config
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\x86\e_sqlite3.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\x64\e_sqlite3.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.SqlServer.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.batteries_green.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.core.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Extensions.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Primitives.dll
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.SqlServer.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.SQLiteStore.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Extensions.xml
+C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Primitives.xml

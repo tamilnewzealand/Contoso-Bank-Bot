@@ -8,35 +8,134 @@ using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-
+using System.Globalization;
+using ContosoBankBot;
 
 namespace ContosoBankBot
 {
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        private async Task<string> GetBalance(Entity[] entities)
+        private string SendMoney(Entity[] entities)
+        {
+            Models.BotDataEntities DB = new Models.BotDataEntities();
+            Models.UserLog NewUserLog = new Models.UserLog();
+            foreach (var Entity in entities)
+            {
+                if (Entity.type == "ToFrom") NewUserLog.ToFrom = Entity.entity;
+                if (Entity.type == "builtin.money")
+                {
+                    string csd = Entity.entity;
+                    csd = csd.Replace(" ", "");
+                    csd = csd.Replace("$", "");
+                    NewUserLog.Value = decimal.Parse(csd, NumberStyles.Currency);
+                }
+                if (Entity.type == "Account") NewUserLog.AccountType = Entity.entity;
+            }
+            
+            NewUserLog.UserID = "CurrentUser";
+            NewUserLog.NewBalance = CalcBalance(NewUserLog.AccountType) - NewUserLog.Value;
+            NewUserLog.Created = DateTime.UtcNow;
+            NewUserLog.Message = "Test message";
+            DB.UserLogs.Add(NewUserLog);
+            DB.SaveChanges();
+
+            string message = "You have successfully sent $" + NewUserLog.Value + " from " + NewUserLog.AccountType + " to " + NewUserLog.ToFrom;
+            return message;
+        }
+
+        private decimal CalcBalance(string Account)
+        {
+            Models.BotDataEntities DB = new Models.BotDataEntities();
+            decimal value = 0.00M;
+            var transactions = (from UserLog in DB.UserLogs
+                                where UserLog.AccountType == Account
+                                select UserLog);
+            foreach (var Score in transactions)
+            {
+                value = Score.NewBalance;
+            }
+            return value;
+        }
+
+        private string GetBalance(Entity[] entities)
         {
             string message;
             switch (entities[0].entity.ToLower())
             {
                 case "current":
-                    message = "Your current account balance is $5000.00.";
+                    message = "Your current account balance is $" + CalcBalance("current");
                     break;
                 case "savings":
-                    message = "Your savings account balance is $7000.00.";
+                    message = "Your savings balance is $" + CalcBalance("savings");
                     break;
                 case "credit card":
-                    message = "Your credit card balance is $3000.00.";
-                    break;
-                case "credit":
-                    message = "Your credit card balance is $3000.00.";
-                    break;
-                case "card":
-                    message = "Your credit card balance is $3000.00.";
+                    message = "Your credit card balance is $" + CalcBalance("credit card");
                     break;
                 default:
-                    message = "Your current account balance is $5000.00.\r\n Your savings account balance is $7000.00.\r\n Your credit card balance is $3000.00.";
+                    message = "Your current account balance is $" + CalcBalance("current") + ".\n\n Your savings account balance is $" + CalcBalance("savings") + ".\n\n Your credit card balance is $" + CalcBalance("credit card") + ".\n\n";
+                    break;
+            }
+            return message;
+        }
+
+        private string GetRecent(Entity[] entities)
+        {
+            string message;
+            Models.BotDataEntities DB = new Models.BotDataEntities();
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            switch (entities[0].entity.ToLower())
+            {
+                case "current":
+                    var transactions = (from UserLog in DB.UserLogs
+                                        where UserLog.AccountType == "current"
+                                        select UserLog)
+                                        .Take(5);
+                    sb.Append("Recent Transactions for Current:\n\n");
+                    foreach (var Score in transactions)
+                    {
+                        sb.Append(String.Format("Transferred {0} to {1} on ({2} {3})\n\n"
+                            , Score.Value
+                            , Score.ToFrom
+                            , Score.Created.ToLocalTime().ToShortDateString()
+                            , Score.Created.ToLocalTime().ToShortTimeString()));
+                    }
+                    message = sb.ToString();
+                    break;
+                case "savings":
+                    var transactionsav = (from UserLog in DB.UserLogs
+                                          where UserLog.AccountType == "savings"
+                                          select UserLog)
+                                        .Take(5);
+                    sb.Append("Recent Transactions for Savings:\n");
+                    foreach (var Score in transactionsav)
+                    {
+                        sb.Append(String.Format("Transferred {0} to {1} on ({2} {3})\n"
+                            , Score.Value
+                            , Score.ToFrom
+                            , Score.Created.ToLocalTime().ToShortDateString()
+                            , Score.Created.ToLocalTime().ToShortTimeString()));
+                    }
+                    message = sb.ToString();
+                    break;
+                case "credit card":
+                    var transactioncred = (from UserLog in DB.UserLogs
+                                          where UserLog.AccountType == "credit"
+                                          select UserLog)
+                                          .Take(5);
+                    sb.Append("Recent Transactions for Credit Card:\n");
+                    foreach (var Score in transactioncred)
+                    {
+                        sb.Append(String.Format("Transferred {0} to {1} on ({2} {3})\n"
+                            , Score.Value
+                            , Score.ToFrom
+                            , Score.Created.ToLocalTime().ToShortDateString()
+                            , Score.Created.ToLocalTime().ToShortTimeString()));
+                    }
+                    message = sb.ToString();
+                    break;
+                default:
+                    message = "Sorry, I am not getting you...";
                     break;
             }
             return message;
@@ -122,13 +221,19 @@ namespace ContosoBankBot
                             case "StockPrice":
                                 message = await GetStock(StLUIS.entities[0].entity);
                                 break;
+                            case "SendMoney":
+                                message = SendMoney(StLUIS.entities);
+                                break;
                             case "Logout":
                                 userData.SetProperty<bool>("LoggedIn", false);
                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                                 message = "You have been successfully logged out.";
                                 break;
+                            case "GetRecent":
+                                message = GetRecent(StLUIS.entities);
+                                break;
                             case "CheckBalance":
-                                message = await GetBalance(StLUIS.entities);
+                                message = GetBalance(StLUIS.entities);
                                 break;
                             default:
                                 message = "Sorry, I am not getting you...";
