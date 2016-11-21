@@ -183,6 +183,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Luis.cs" />
+    <Compile Include="MicrosoftCognitiveSpeechService.cs" />
     <Compile Include="Models\BotData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +203,7 @@
       <DependentUpon>BotData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="YahooBot.cs" />
   </ItemGroup>
   <ItemGroup>

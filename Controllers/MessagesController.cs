@@ -10,12 +10,18 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Globalization;
 using ContosoBankBot;
+using System.IO;
+using System.Diagnostics;
+using System.Net.Http.Headers;
+using ContosoBankBot.Services;
 
 namespace ContosoBankBot
 {
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        private readonly MicrosoftCognitiveSpeechService speechService = new MicrosoftCognitiveSpeechService();
+
         private string SendMoney(Entity[] entities)
         {
             Models.BotDataEntities DB = new Models.BotDataEntities();
@@ -213,6 +219,21 @@ namespace ContosoBankBot
                 else
                 {
                     string message;
+                    try
+                    {
+                        var audioAttachment = activity.Attachments?.FirstOrDefault(a => a.ContentType.Equals("audio/wav") || a.ContentType.Equals("application/octet-stream"));
+                        if (audioAttachment != null)
+                        {
+                            var stream = await GetImageStream(connector, audioAttachment);
+                            var text = await this.speechService.GetTextFromAudioAsync(stream);
+                            message = text;
+                        }
+                    }
+                    catch
+                    {
+                        int nothing = 0;
+                    }
+
                     Luis StLUIS = await GetEntityFromLUIS(userMessage);
                     if (StLUIS.intents.Count() > 0)
                     {
@@ -255,6 +276,44 @@ namespace ContosoBankBot
             }
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
+        }
+
+        private static async Task<Stream> GetImageStream(ConnectorClient connector, Attachment imageAttachment)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                // The Skype attachment URLs are secured by JwtToken,
+                // you should set the JwtToken of your bot as the authorization header for the GET request your bot initiates to fetch the image.
+                // https://github.com/Microsoft/BotBuilder/issues/662
+                var uri = new Uri(imageAttachment.ContentUrl);
+                if (uri.Host.EndsWith("skype.com") && uri.Scheme == "https")
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await GetTokenAsync(connector));
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/octet-stream"));
+                }
+                else
+                {
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(imageAttachment.ContentType));
+                }
+
+                return await httpClient.GetStreamAsync(uri);
+            }
+        }
+
+        /// <summary>
+        /// Gets the JwT token of the bot. 
+        /// </summary>
+        /// <param name="connector"></param>
+        /// <returns>JwT token of the bot</returns>
+        private static async Task<string> GetTokenAsync(ConnectorClient connector)
+        {
+            var credentials = connector.Credentials as MicrosoftAppCredentials;
+            if (credentials != null)
+            {
+                return await credentials.GetTokenAsync();
+            }
+
+            return null;
         }
 
         private Activity HandleSystemMessage(Activity message)
