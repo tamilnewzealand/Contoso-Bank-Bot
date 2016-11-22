@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ContosoBankBot.Services
+namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot.Services
 {
     public class AccessTokenInfo
     {

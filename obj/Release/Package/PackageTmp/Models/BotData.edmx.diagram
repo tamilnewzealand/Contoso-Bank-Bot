@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="88c604f12b7847a5b4998de9e218ca61" Name="Diagram1">
+      <Diagram DiagramId="bde22defb28f4f4d9989ea96dd95515a" Name="Diagram1">
         <EntityTypeShape EntityType="BotDataModel.UserLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

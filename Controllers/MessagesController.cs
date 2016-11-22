@@ -1,21 +1,19 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Globalization;
-using ContosoBankBot;
-using System.IO;
+using Microsoft.Bot.Builder.Dialogs;
+using System.Web.Http.Description;
+using System.Net.Http;
 using System.Diagnostics;
+using System;
+using Microsoft.Bot.Sample.SimpleFacebookAuthBot.Services;
+using System.IO;
+using Newtonsoft.Json;
+using System.Linq;
 using System.Net.Http.Headers;
-using ContosoBankBot.Services;
+using System.Globalization;
 
-namespace ContosoBankBot
+namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
 {
     [BotAuthentication]
     public class MessagesController : ApiController
@@ -38,7 +36,7 @@ namespace ContosoBankBot
                 }
                 if (Entity.type == "Account") NewUserLog.AccountType = Entity.entity;
             }
-            
+
             NewUserLog.UserID = "CurrentUser";
             NewUserLog.NewBalance = CalcBalance(NewUserLog.AccountType) - NewUserLog.Value;
             NewUserLog.Created = DateTime.UtcNow;
@@ -126,8 +124,8 @@ namespace ContosoBankBot
                     break;
                 case "credit card":
                     var transactioncred = (from UserLog in DB.UserLogs
-                                          where UserLog.AccountType == "credit"
-                                          select UserLog)
+                                           where UserLog.AccountType == "credit"
+                                           select UserLog)
                                           .Take(5);
                     sb.Append("Recent Transactions for Credit Card:\n");
                     foreach (var Score in transactioncred)
@@ -177,107 +175,73 @@ namespace ContosoBankBot
             }
             return Data;
         }
+
         /// <summary>
         /// POST: api/Messages
-        /// Receive a message from a user and reply to it
+        /// receive a message from a user and send replies
         /// </summary>
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        /// <param name="activity"></param>
+        [ResponseType(typeof(void))]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
-            if (activity.Type == ActivityTypes.Message)
+            if (activity != null)
             {
-                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-
-                var userMessage = activity.Text;
-
-                StateClient stateClient = activity.GetStateClient();
-                BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-
-                if (!userData.GetProperty<bool>("LoggedIn"))
+                // one of these will have an interface and process it
+                if (activity.GetActivityType() == ActivityTypes.Message)
                 {
-                    Activity replyToConversation = activity.CreateReply();
-                    replyToConversation.Recipient = activity.From;
-                    replyToConversation.Type = "message";
-
-                    replyToConversation.Attachments = new List<Attachment>();
-                    List<CardAction> cardButtons = new List<CardAction>();
-                    CardAction plButton = new CardAction()
+                    if (activity.Text == "login" | activity.Text == "hi" | activity.Text == "logout")
                     {
-                        Value = $"http://contosobankbot.azurewebsites.net/Home/Login.html",
-                        Type = "signin",
-                        Title = "Authentication Required"
-                    };
-                    cardButtons.Add(plButton);
-                    SigninCard plCard = new SigninCard("Please login to Contoso Bank", new List<CardAction>() { plButton });
-                    Attachment plAttachment = plCard.ToAttachment();
-                    replyToConversation.Attachments.Add(plAttachment);
-
-                    var reply = await connector.Conversations.SendToConversationAsync(replyToConversation);
-
-                    userData.SetProperty<bool>("LoggedIn", true);
-                    await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                }
-                else
-                {
-                    string message;
-                    try
-                    {
-                        var audioAttachment = activity.Attachments?.FirstOrDefault(a => a.ContentType.Equals("audio/wav") || a.ContentType.Equals("application/octet-stream"));
-                        if (audioAttachment != null)
-                        {
-                            var stream = await GetImageStream(connector, audioAttachment);
-                            var text = await this.speechService.GetTextFromAudioAsync(stream);
-                            message = text;
-                        }
-                    }
-                    catch
-                    {
-                        int nothing = 0;
-                    }
-
-                    Luis StLUIS = await GetEntityFromLUIS(userMessage);
-                    if (StLUIS.intents.Count() > 0)
-                    {
-                        switch (StLUIS.intents[0].intent)
-                        {
-                            case "StockPrice":
-                                message = await GetStock(StLUIS.entities[0].entity);
-                                break;
-                            case "SendMoney":
-                                message = SendMoney(StLUIS.entities);
-                                break;
-                            case "Logout":
-                                userData.SetProperty<bool>("LoggedIn", false);
-                                await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                                message = "You have been successfully logged out.";
-                                break;
-                            case "GetRecent":
-                                message = GetRecent(StLUIS.entities);
-                                break;
-                            case "CheckBalance":
-                                message = GetBalance(StLUIS.entities);
-                                break;
-                            default:
-                                message = "Sorry, I am not getting you...";
-                                break;
-                        }
+                        await Conversation.SendAsync(activity, () => SimpleFacebookAuthDialog.dialog);
                     }
                     else
                     {
-                        message = "Sorry, I am not getting you...";
+                        ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                        string userMessage = activity.Text;
+                        string message = "Sorry, I am not getting you...";
+
+                        try
+                        {
+                            var audioAttachment = activity.Attachments?.FirstOrDefault(a => a.ContentType.Equals("audio/wav") || a.ContentType.Equals("application/octet-stream"));
+                            if (audioAttachment != null)
+                            {
+                                var stream = await GetImageStream(connector, audioAttachment);
+                                var text = await this.speechService.GetTextFromAudioAsync(stream);
+                                userMessage = text;
+                            }
+                        }
+                        catch
+                        {
+                        }
+
+                        Luis StLUIS = await GetEntityFromLUIS(userMessage);
+                        if (StLUIS.intents.Count() > 0)
+                        {
+                            switch (StLUIS.intents[0].intent)
+                            {
+                                case "StockPrice":
+                                    message = await GetStock(StLUIS.entities[0].entity);
+                                    break;
+                                case "SendMoney":
+                                    message = SendMoney(StLUIS.entities);
+                                    break;
+                                case "GetRecent":
+                                    message = GetRecent(StLUIS.entities);
+                                    break;
+                                case "CheckBalance":
+                                    message = GetBalance(StLUIS.entities);
+                                    break;
+                                default:
+                                    message = "Sorry, I am not getting you...";
+                                    break;
+                            }
+                        }
+                        Activity infoReply = activity.CreateReply(message);
+                        await connector.Conversations.ReplyToActivityAsync(infoReply);
                     }
-                    Activity infoReply = activity.CreateReply(message);
-                    await connector.Conversations.ReplyToActivityAsync(infoReply);
                 }
-
             }
-            else
-            {
-                HandleSystemMessage(activity);
-            }
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            return response;
+            return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
-
         private static async Task<Stream> GetImageStream(ConnectorClient connector, Attachment imageAttachment)
         {
             using (var httpClient = new HttpClient())
@@ -311,35 +275,6 @@ namespace ContosoBankBot
             if (credentials != null)
             {
                 return await credentials.GetTokenAsync();
-            }
-
-            return null;
-        }
-
-        private Activity HandleSystemMessage(Activity message)
-        {
-            if (message.Type == ActivityTypes.DeleteUserData)
-            {
-                // Implement user deletion here
-                // If we handle user deletion, return a real message
-            }
-            else if (message.Type == ActivityTypes.ConversationUpdate)
-            {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
-            }
-            else if (message.Type == ActivityTypes.ContactRelationUpdate)
-            {
-                // Handle add/remove from contact lists
-                // Activity.From + Activity.Action represent what happened
-            }
-            else if (message.Type == ActivityTypes.Typing)
-            {
-                // Handle knowing tha the user is typing
-            }
-            else if (message.Type == ActivityTypes.Ping)
-            {
             }
 
             return null;

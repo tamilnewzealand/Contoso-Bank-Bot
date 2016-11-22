@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ContosoBankBot.Models
+namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot.Models
 {
     using System;
     using System.Data.Entity;

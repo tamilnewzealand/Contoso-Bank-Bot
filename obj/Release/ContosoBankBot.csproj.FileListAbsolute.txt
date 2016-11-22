@@ -1,59 +1,47 @@
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Bot Application1.dll.config
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Bot Application1.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Bot Application1.pdb
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Autofac.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Chronic.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Bot.Builder.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Bot.Connector.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Rest.ClientRuntime.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Configuration.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Newtonsoft.Json.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.IdentityModel.Tokens.Jwt.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Formatting.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Web.Http.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Web.Http.WebHost.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Autofac.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Bot.Builder.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Bot.Connector.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.Rest.ClientRuntime.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Configuration.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Newtonsoft.Json.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.IdentityModel.Tokens.Jwt.pdb
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.IdentityModel.Tokens.Jwt.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Formatting.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Web.Http.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Web.Http.WebHost.xml
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\ar\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\en\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\es\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\fa\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\fr\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\ja\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\ru\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Release\ContosoBankBot.csprojResolveAssemblyReference.cache
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Release\Bot Application1.dll
-c:\users\windowsuser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Release\Bot Application1.pdb
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\x86\e_sqlite3.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\x64\e_sqlite3.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.SqlServer.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.Ext.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.batteries_green.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.core.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Extensions.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Primitives.dll
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\EntityFramework.SqlServer.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.Ext.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\Microsoft.WindowsAzure.Mobile.SQLiteStore.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Extensions.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\bin\System.Net.Http.Primitives.xml
-C:\Users\WindowsUser\documents\visual studio 2015\Projects\ContosoBankBot\ContosoBankBot\obj\Release\ContosoBankBot.csproj.App.config
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Sample.SimpleFacebookAuthBot.dll.config
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Sample.SimpleFacebookAuthBot.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Sample.SimpleFacebookAuthBot.pdb
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Autofac.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\EntityFramework.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\EntityFramework.SqlServer.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Builder.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Connector.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Newtonsoft.Json.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Net.Http.Formatting.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Web.Http.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Web.Http.WebHost.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Chronic.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Builder.pdb
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Builder.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Connector.pdb
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.Bot.Connector.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Autofac.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\EntityFramework.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\EntityFramework.SqlServer.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Newtonsoft.Json.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Net.Http.Formatting.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Web.Http.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.Web.Http.WebHost.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\de-DE\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\it\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\bin\zh-Hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\obj\Release\ContosoBankBot.csprojResolveAssemblyReference.cache
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\obj\Release\Microsoft.Bot.Sample.SimpleFacebookAuthBot.dll
+C:\Users\WindowsUser\Documents\BotBuilder-master\CSharp\Samples\SimpleFacebookAuthBot\obj\Release\Microsoft.Bot.Sample.SimpleFacebookAuthBot.pdb

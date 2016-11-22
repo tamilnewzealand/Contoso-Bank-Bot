@@ -5,7 +5,7 @@ using System.Web;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace ContosoBankBot
+namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
 {
     public class Luis
     {
