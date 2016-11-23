@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
 {
@@ -192,6 +193,48 @@ namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
                     if (activity.Text == "login" | activity.Text == "hi" | activity.Text == "logout")
                     {
                         await Conversation.SendAsync(activity, () => SimpleFacebookAuthDialog.dialog);
+                    }
+                    else if (activity.Text == "help")
+                    {
+                        ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                        Activity replyToConversation = activity.CreateReply();
+                        replyToConversation.Recipient = activity.From;
+                        replyToConversation.Type = "message";
+                        replyToConversation.Attachments = new List<Attachment>();
+                        List<CardImage> cardImages = new List<CardImage>();
+                        cardImages.Add(new CardImage(url: "https://contosobankbot.azurewebsites.net/logo.png"));
+                        List<CardAction> cardButtons = new List<CardAction>();
+                        CardAction plButton = new CardAction()
+                        {
+                            Value = "stock price of msft?",
+                            Type = "imBack",
+                            Title = "Microsoft Stock Price"
+                        };
+                        cardButtons.Add(plButton);
+                        CardAction plButtona = new CardAction()
+                        {
+                            Value = "all my balances",
+                            Type = "imBack",
+                            Title = "Show me my account balances"
+                        };
+                        cardButtons.Add(plButtona);
+                        CardAction plButtonb = new CardAction()
+                        {
+                            Value = "recent transactions on current",
+                            Type = "imBack",
+                            Title = "Recent transactions on current"
+                        };
+                        cardButtons.Add(plButtonb);
+                        HeroCard plCard = new HeroCard()
+                        {
+                            Title = "Welcome to Contoso Bank Bot",
+                            Subtitle = "How can I help you?",
+                            Images = cardImages,
+                            Buttons = cardButtons
+                        };
+                        Attachment plAttachment = plCard.ToAttachment();
+                        replyToConversation.Attachments.Add(plAttachment);
+                        var reply = await connector.Conversations.SendToConversationAsync(replyToConversation);
                     }
                     else
                     {

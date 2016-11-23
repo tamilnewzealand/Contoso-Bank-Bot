@@ -64,7 +64,7 @@ namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
                            var valid = await FacebookHelpers.ValidateAccessToken(token);
                            var name = await FacebookHelpers.GetFacebookProfileName(token);
                            context.UserData.SetValue("name", name);
-                           return Chain.Return($"Your are logged in as: {name}");
+                           return Chain.Return($"Your are logged in as: {name}.\n\n Type 'help' for more information.");
                        });
                 }),
                 new Case<IMessageActivity, IDialog<string>>((msg) =>
@@ -88,7 +88,7 @@ namespace Microsoft.Bot.Sample.SimpleFacebookAuthBot
                         validationTask.Wait();
                         if (validationTask.IsCompleted && validationTask.Result)
                         {
-                            return Chain.Return($"Your are logged in as: {name}");
+                            return Chain.Return($"Your are logged in as: {name}.\n\n Type 'help' for more information.");
                         }
                         else
                         {
